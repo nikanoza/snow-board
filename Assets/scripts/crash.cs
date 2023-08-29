@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class crash : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class crash : MonoBehaviour
     {
         if (other.tag == "ground")
         {
-            Debug.Log("Looser!");
+            SceneManager.LoadScene(0);
         }
     }
 }
