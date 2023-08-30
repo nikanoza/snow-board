@@ -9,6 +9,22 @@ public class playercontroller : MonoBehaviour
     [SerializeField] float baseSpeed = 20f;
     Rigidbody2D rb2d;
     SurfaceEffector2D surfaceEffector2D;
+    [SerializeField] ParticleSystem snowEffect;
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "ground")
+        {
+            snowEffect.Play();
+        }
+    }
+    void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "ground")
+        {
+            snowEffect.Stop();
+        }
+    }
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -41,7 +57,7 @@ public class playercontroller : MonoBehaviour
         }
         else
         {
-            surfaceEffector2D.speed = boostSpeed;
+            surfaceEffector2D.speed = baseSpeed;
         }
     }
 }
