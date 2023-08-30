@@ -6,9 +6,11 @@ public class playercontroller : MonoBehaviour
 {
     [SerializeField] float torqueAmount = 1f;
     Rigidbody2D rb2d;
+    SurfaceEffector2D surfaceEffector2D;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        surfaceEffector2D = FindObjectOfType<SurfaceEffector2D>();
     }
 
     // Update is called once per frame
